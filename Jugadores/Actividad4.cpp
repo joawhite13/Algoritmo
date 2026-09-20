@@ -6,8 +6,8 @@ int capacidadtotal, vagonesllenos, vagonincompleto, vacios, vagoneusado;
 
 void calculototal(int pasajeros, int vagones, int capacidadvagon) {
     capacidadtotal = vagones * capacidadvagon;
-    vagonesllenos = pasajeros / vagones;
-    vagonincompleto = pasajeros % vagones;
+    vagonesllenos = pasajeros / capacidadvagon; // Calculate full wagons based on capacity
+    vagonincompleto = pasajeros % capacidadvagon; // Calculate remaining passengers for the incomplete wagon
 
     if (vagonincompleto == 0) {
         vagoneusado = 0;
