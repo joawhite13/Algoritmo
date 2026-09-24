@@ -24,21 +24,43 @@ int main() {
     cout << "Ingrese la cantidad de pasajeros: ";
     do {
         cin >> pasajeros;
+        if (pasajeros < 1) {
+            cout << "La cantidad de pasajeros debe ser mayor que 1. Intente nuevamente: ";
+        }
     } while (pasajeros < 1);
 
     cout << "Ingrese la capacidad de cada vagon: ";
     do {
         cin >> capacidadvagon;
+        if (capacidadvagon < 1) {
+            cout << "La capacidad del vagon debe ser mayor que 1. Intente nuevamente: ";
+        }
     } while (capacidadvagon < 1);
 
     cout << "Ingrese la cantidad de vagones disponibles: ";
-    do {
+    do {      
         cin >> vagones;
+        if (vagones < 1) {
+            cout << "La cantidad de vagones debe ser mayor que 1. Intente nuevamente: ";
+        }
     } while (vagones < 1);
+    do {
+        capacidadtotal = vagones * capacidadvagon;
+        if (capacidadtotal < pasajeros) {
+            cout << "La cantidad de vagones no es suficiente para los pasajeros. Intente nuevamente: ";
+            cin >> vagones;
+        }
+    } while (capacidadtotal < pasajeros);
 
     calculototal(pasajeros, vagones, capacidadvagon);
 
     cout << "La cantidad de vagones completos es: " << vagonesllenos << endl;
+    if (vagonesllenos == 0) {
+        cout << "No hay vagones completos" << endl;
+    }
+    if (vagonesllenos == vagones) {
+        cout << "Todos los vagones estan completos" << endl;
+    }
 
     if (vagonincompleto != 0) {
         cout << "El numero de pasajeros en el vagon incompleto es de: " << vagonincompleto << endl;
