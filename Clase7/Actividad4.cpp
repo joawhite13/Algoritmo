@@ -1,5 +1,4 @@
-// Clase 7 - Actividad 4: Torneo ARGENTINA
-// Programa del Anexo + carga de resultados + ranking + Actividad 2 opcion a
+// Clase 7 
 #include <iostream>
 using namespace std;
 
@@ -7,7 +6,7 @@ const int NE = 4; // cantidad de equipos
 const int NP = 6; // cantidad de partidos (todos contra todos)
 // Columnas de Partidos: 0 equipo1, 1 equipo2, 2 goles eq1, 3 goles eq2, 4 amarillas eq1, 5 amarillas eq2
 
-// ---------- Programa original (Anexo) ----------
+//Programa original
 void CargarDatos(char Equipos[NE]) {
     int j, Ind = 0; char equi;
     do {
@@ -37,7 +36,7 @@ void MuestroPartidos(char Equipos[NE], int Partidos[NP][6]) {
         cout << Equipos[Partidos[Ind][0]] << " vs " << Equipos[Partidos[Ind][1]] << endl;
 }
 
-// ---------- Actividad 4: carga de resultados ----------
+//carga de resultados 
 int LeerNoNegativo(string msj) {
     int x;
     do { cout << msj; cin >> x; } while (x < 0);
@@ -56,7 +55,7 @@ void CargarResultados(char Equipos[NE], int Partidos[NP][6]) {
     }
 }
 
-// ---------- Actividad 4: ranking ----------
+//Ranking
 void CalcularPuntos(int Partidos[NP][6], int Puntos[NE], int Dif[NE]) {
     for (int e = 0; e < NE; e++) { Puntos[e] = 0; Dif[e] = 0; }
     for (int p = 0; p < NP; p++) {
@@ -90,7 +89,6 @@ void MostrarRanking(char Equipos[NE], int Partidos[NP][6]) {
     cout << "2do puesto: " << Equipos[Orden[1]] << endl;
 }
 
-// ---------- Actividad 2 - Opcion a ----------
 // Procedimiento: muestra el/los equipo/s con mas goles a favor (contempla empates)
 void EquipoGoleador(char Equipos[NE], int Partidos[NP][6]) {
     int Goles[NE], p, e, max;
